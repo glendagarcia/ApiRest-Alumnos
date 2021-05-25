@@ -14,11 +14,15 @@ class AlumnosController extends Controller{
 
     public function add(){
         if(isset($_POST["nombre"])&&isset($_POST["direccion"])&&isset($_POST["telefono"])
-        &&isset($_POST["lab1"])&&isset($_POST["lab2"])&&isset($_POST["parcial"])&&isset($_POST["idalu"])){
-            $this->noticias->add($_POST["titulo"],$_POST["fecha"],$_POST["descripcion"]);
-            $info=array('success'=>true, 'msg'=>'Alumnos agregadó con exito');
+        &&isset($_POST["lab1"])&&isset($_POST["lab2"])&&isset($_POST["parcial"])){
+
+            $this->alumnos->add($_POST["nombre"],$_POST["direccion"],$_POST["telefono"],$_POST["lab1"],
+            $_POST["lab2"],$_POST["parcial"]);
+
+            $info=array('success'=>true, 'msg'=>'Alumno agregado con exito');
         }else{
             $info=array('success'=>false, 'msg'=>'Los parametros son obligatorios');
         }
         echo json_encode($info);
     }
+}

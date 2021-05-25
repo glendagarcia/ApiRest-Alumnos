@@ -6,7 +6,7 @@
         }
 
         public function getAll(){
-            $result=$this->conexion->query("Select * from alumnos");
+            $result=$this->conexion->query("Select *, (laboratorio1*0.25+laboratorio2*0.25+parcial*0.5) as Promedio from alumnos;");
             return $this->getArrayfromResult($result);
         }
         public function add($nombre,$direccion,$telefono,$lab1,$lab2,$parcial){

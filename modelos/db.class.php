@@ -17,7 +17,7 @@
 
         public function getArrayfromResult($result){
             $records = array();
-            while ($row = $result->fetch_array()){
+            while ($row = $result->fetch_assoc()){
                 $records[]=$row;
             }
             return $records;
